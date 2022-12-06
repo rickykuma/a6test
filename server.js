@@ -6,7 +6,7 @@
 * 
 * Name: Mohammad Rashidi Khorsand   Student ID: 134713213  Date: 30/11/2022
 *
-* Online (Cyclic) Link: add here
+* Online (Cyclic) Link: https://rich-plum-stingray-tutu.cyclic.app/
 *
 ********************************************************************************/ 
 
@@ -51,22 +51,19 @@ app.use(function(req,res,next){
     next();
 });
 
-//setup client-sessions
 app.use(clientSessions({
     cookieName: "session",
     secret: "web322-assignment6-clientSession",
-    duration: 30 * 60 * 1000, //30 mins
-    activeDuration: 15 * 60 * 1000 // 15 mins
+    duration: 30 * 60 * 1000, 
+    activeDuration: 15 * 60 * 1000 
 }));
 
-// A simple user object, hardcoded for this example
 const user = {
     username: "sampleuser",
     password: "samplepassword",
     email: "sampleuser@example.com", 
 };
 
-//helper function to check login
 function ensureLogin(req, res, next){
     if(!req.session.user){
         res.redirect("/login");
@@ -75,7 +72,6 @@ function ensureLogin(req, res, next){
     }
 }
 
-//general route
 app.get("/", (req,res) => {
     res.render("home");
 });
@@ -88,7 +84,6 @@ app.get("/htmlDemo", (req,res) => {
     res.render("htmlDemo");
 });
 
-//login route
 app.get("/login", (req, res)=>{
     res.render("login");
 });
@@ -125,7 +120,6 @@ app.get("/logout", (req, res)=>{
     res.render("logout");
 });
 
-//student route
 app.get("/students", ensureLogin, (req, res) => {
     if (req.query.course) {
         data.getStudentsByCourse(req.query.course).then((data) => {
