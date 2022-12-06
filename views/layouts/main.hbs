@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>View Data</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/theme.css">
+    </head>
+
+    <body>
+        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-100">
+                    {{#navLink "/"}}Home{{/navLink}}
+                    {{#navLink "/about"}}About{{/navLink}}
+                    {{#navLink "/htmlDemo"}}Html Demo{{/navLink}}
+
+                    {{#navLink "/students"}}Students{{/navLink}}
+                    {{#navLink "/courses"}}Courses{{/navLink}}
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    {{#navLink "/login"}}Login{{/navLink}}
+                    {{#navLink "/logout"}}Logout{{/navLink}}
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Top Menu -->
+        <main>
+            {{{body}}}
+        </main>
+        <!-- footer -->
+    </body>
+</html>
